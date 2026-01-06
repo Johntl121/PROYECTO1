@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sabor & Arte | Recetas Gourmet para Todos</title>
+    <meta name="description"
+        content="Descubre recetas deliciosas, fáciles y gourmet para cada ocasión. Cocina con pasión en Sabor & Arte.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">Sabor <span class="accent">&</span> Arte</a>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Inicio</a></li>
+                <li><a href="#recetas">Recetas</a></li>
+                <li><a href="#categorias">Categorías</a></li>
+                <li><a href="#blog">Blog</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="search-btn"><i class="fa-solid fa-search"></i></button>
+                <a href="#subscribe" class="btn btn-primary">Suscribirse</a>
+            </div>
+            <div class="mobile-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="hero">
+        <div class="hero-bg">
+            <img src="C:/Users/jpier/.gemini/antigravity/brain/a6f3b9ff-1041-46a1-b764-39672776f27b/hero_food_background_1767717297252.png"
+                alt="Mesa llena de comida deliciosa">
+            <div class="overlay"></div>
+        </div>
+        <div class="container hero-content">
+            <span class="badget">Nuevas Recetas Cada Semana</span>
+            <h1>El Arte de <br> <span class="text-gradient">Cocinar con Pasión</span></h1>
+            <p>Explora miles de recetas creadas por chefs y amantes de la cocina. Desde cenas rápidas hasta banquetes
+                gourmet.</p>
+            <div class="hero-search">
+                <input type="text" placeholder="¿Qué se te antoja hoy? (ej. Pasta, Ensalada...)">
+                <button class="btn btn-search">Buscar</button>
+            </div>
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="number">500+</span>
+                    <span class="label">Recetas</span>
+                </div>
+                <div class="stat-item">
+                    <span class="number">12k</span>
+                    <span class="label">Comunidad</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Categories Section -->
+    <section id="categorias" class="categories section-padding">
+        <div class="container">
+            <div class="section-header text-center">
+                <h5>Explora por Tipo</h5>
+                <h2>Categorías Populares</h2>
+            </div>
+            <div class="category-grid">
+                <div class="category-card">
+                    <div class="icon"><i class="fa-solid fa-bread-slice"></i></div>
+                    <h3>Desayunos</h3>
+                </div>
+                <div class="category-card active">
+                    <div class="icon"><i class="fa-solid fa-bowl-rice"></i></div>
+                    <h3>Almuerzos</h3>
+                </div>
+                <div class="category-card">
+                    <div class="icon"><i class="fa-solid fa-wine-glass"></i></div>
+                    <h3>Cenas</h3>
+                </div>
+                <div class="category-card">
+                    <div class="icon"><i class="fa-solid fa-ice-cream"></i></div>
+                    <h3>Postres</h3>
+                </div>
+                <div class="category-card">
+                    <div class="icon"><i class="fa-solid fa-carrot"></i></div>
+                    <h3>Vegano</h3>
+                </div>
+                <div class="category-card">
+                    <div class="icon"><i class="fa-solid fa-mug-hot"></i></div>
+                    <h3>Bebidas</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Recipes -->
+    <section id="recetas" class="featured section-padding bg-light">
+        <div class="container">
+            <div class="section-header">
+                <div class="header-text">
+                    <h5>Selección del Chef</h5>
+                    <h2>Recetas Destacadas</h2>
+                </div>
+                <a href="#" class="view-all">Ver todas <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <div class="recipes-grid">
+                <!-- Recipe Card 1 -->
+                <article class="recipe-card">
+                    <div class="card-image">
+                        <img src="C:/Users/jpier/.gemini/antigravity/brain/a6f3b9ff-1041-46a1-b764-39672776f27b/recipe_pasta_salad_1767717313449.png"
+                            alt="Ensalada de Pasta Caprese">
+                        <button class="favorite-btn"><i class="fa-regular fa-heart"></i></button>
+                        <div class="tags">
+                            <span class="tag">Vegetariano</span>
+                            <span class="tag time"><i class="fa-regular fa-clock"></i> 20 min</span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half-stroke"></i>
+                            <span>(4.8)</span>
+                        </div>
+                        <h3><a href="#">Ensalada de Pasta Caprese Fresca</a></h3>
+                        <p>Una combinación clásica de tomates cherry, mozzarella fresca y albahaca con un aderezo
+                            balsámico ligero.</p>
+                        <div class="card-footer">
+                            <div class="author">
+                                <div class="avatar">MJ</div>
+                                <span>Por Maria J.</span>
+                            </div>
+                            <a href="#" class="btn-link">Ver Receta</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Recipe Card 2 -->
+                <article class="recipe-card">
+                    <div class="card-image">
+                        <img src="C:/Users/jpier/.gemini/antigravity/brain/a6f3b9ff-1041-46a1-b764-39672776f27b/recipe_pancakes_1767717328131.png"
+                            alt="Pancakes Esponjosos con Arándanos">
+                        <button class="favorite-btn"><i class="fa-regular fa-heart"></i></button>
+                        <div class="tags">
+                            <span class="tag">Desayuno</span>
+                            <span class="tag time"><i class="fa-regular fa-clock"></i> 30 min</span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <span>(5.0)</span>
+                        </div>
+                        <h3><a href="#">Pancakes Esponjosos con Arándanos</a></h3>
+                        <p>El desayuno perfecto para el fin de semana. Pancakes suaves y aireados cubiertos con miel de
+                            maple real.</p>
+                        <div class="card-footer">
+                            <div class="author">
+                                <div class="avatar">CR</div>
+                                <span>Por Chef Roberto</span>
+                            </div>
+                            <a href="#" class="btn-link">Ver Receta</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Recipe Card 3 (Placeholder using same image or generate another one? I'll reuse pasta for layout demo or just 2 cards is fine, let's add a placeholder card structure but reuse image to keep it consistent or create a 3rd image if I could. I'll stick to 2 for now to keep quality high or duplicate one) -->
+                <!-- Let's just create 2 featured for this demo to keep it clean and focused on the generated assets -->
+                <article class="recipe-card newsletter-promo">
+                    <div class="promo-content">
+                        <h3>¿No sabes qué cocinar?</h3>
+                        <p>Recibe nuestro plan de comidas semanal directamente en tu correo.</p>
+                        <form class="mini-form">
+                            <input type="email" placeholder="Tu correo electrónico">
+                            <button type="submit" class="btn btn-primary">Unirse</button>
+                        </form>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <a href="#" class="logo light">Sabor <span class="accent">&</span> Arte</a>
+                <p>Cocinando historias, un plato a la vez. Tu destino culinario premium.</p>
+                <div class="socials">
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="#"><i class="fa-brands fa-pinterest"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Explorar</h4>
+                <ul>
+                    <li><a href="#">Recetas</a></li>
+                    <li><a href="#">Chefs</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Cursos</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Compañía</h4>
+                <ul>
+                    <li><a href="#">Sobre Nosotros</a></li>
+                    <li><a href="#">Contacto</a></li>
+                    <li><a href="#">Términos</a></li>
+                    <li><a href="#">Privacidad</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom text-center">
+            <p>&copy; 2024 Sabor & Arte. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple script for sticky navbar
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('sticky', window.scrollY > 0);
+        });
+    </script>
+</body>
+
+</html>
