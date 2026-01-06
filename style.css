@@ -164,6 +164,11 @@ img {
     font-family: var(--font-heading);
     font-size: 1.8rem;
     font-weight: 700;
+    color: var(--white);
+    transition: var(--transition);
+}
+
+.navbar.sticky .logo {
     color: var(--secondary);
 }
 
@@ -179,8 +184,12 @@ img {
 
 .nav-links a {
     font-weight: 500;
-    color: var(--secondary);
+    color: var(--white);
     position: relative;
+}
+
+.navbar.sticky .nav-links a {
+    color: var(--secondary);
 }
 
 .nav-links a::after {
@@ -210,6 +219,11 @@ img {
     border: none;
     font-size: 1.2rem;
     cursor: pointer;
+    color: var(--white);
+    transition: var(--transition);
+}
+
+.navbar.sticky .search-btn {
     color: var(--secondary);
 }
 

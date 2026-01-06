@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recetas | Sabor & Arte</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Estilos específicos para esta página interna */
+        .page-header {
+            background-color: var(--secondary);
+            padding: 120px 0 60px;
+            color: var(--white);
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .page-header h1 {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .filter-bar {
+            background-color: var(--white);
+            padding: 20px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 40px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .search-container {
+            flex: 1;
+            display: flex;
+            gap: 10px;
+        }
+
+        .search-container input {
+            flex: 1;
+            padding: 12px 20px;
+            border: 1px solid var(--gray-light);
+            border-radius: 50px;
+            font-family: var(--font-body);
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .search-container input:focus {
+            border-color: var(--primary);
+        }
+
+        .filter-select {
+            padding: 12px 20px;
+            border: 1px solid var(--gray-light);
+            border-radius: 50px;
+            background-color: var(--white);
+            font-family: var(--font-body);
+            cursor: pointer;
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation (Mismo que home) -->
+    <nav class="navbar sticky">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Sabor <span class="accent">&</span> Arte</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="recetas.html" class="active">Recetas</a></li>
+                <li><a href="recetas.html">Categorías</a></li>
+                <li><a href="#">Blog</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="search-btn"><i class="fa-solid fa-search"></i></button>
+                <a href="#" class="btn btn-primary">Suscribirse</a>
+            </div>
+            <div class="mobile-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <span class="badget" id="category-badge">Explora</span>
+            <h1 id="page-title">Todas las Recetas</h1>
+            <p>Encuentra el plato perfecto para hoy</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container section-padding" style="padding-top: 0;">
+
+        <!-- Search & Filter Bar -->
+        <!-- Search & Filter Bar -->
+        <div class="filter-bar">
+            <div class="search-container">
+                <input type="text" placeholder="Buscar receta, ingrediente..." id="search-input">
+                <button class="btn btn-primary" onclick="searchRecipes()">Buscar</button>
+            </div>
+            <select class="filter-select" id="category-filter" onchange="filterRecipes()">
+                <option value="">Todas las Categorías</option>
+                <option value="desayuno">Desayunos</option>
+                <option value="almuerzo">Almuerzos</option>
+                <option value="cena">Cenas</option>
+                <option value="postre">Postres</option>
+            </select>
+        </div>
+
+        <!-- Recipes Grid -->
+        <div class="recipes-grid">
+
+            <!-- DESAYUNOS (4 Recetas) -->
+            <article class="recipe-card" data-category="desayuno">
+                <div class="card-image">
+                    <img src="images/pancakes.png" alt="Pancakes">
+                    <button class="favorite-btn"><i class="fa-regular fa-heart"></i></button>
+                    <div class="tags"><span class="tag">Desayuno</span><span class="tag time">30 min</span></div>
+                </div>
+                <div class="card-content">
+                    <div class="rating"><i class="fa-solid fa-star"></i><span>(5.0)</span></div>
+                    <h3><a href="#">Pancakes con Arándanos</a></h3>
+                    <p>El desayuno clásico americano, esponjoso y dulce.</p>
+                    <div class="card-footer">
+                        <div class="author">
+                            <div class="avatar">CR</div><span>Chef Roberto</span>
+                        </div>
+                        <a href="#" class="btn-link">Ver Receta</a>
+                    </div>
+                </div>
+            </article>
+            <article class="recipe-card" data-category="desayuno">
+                <div class="card-image">
+                    <img src="images/pancakes.png" alt="Tostadas Francesas" style="transform: scaleX(-1);">
+                    <button class="favorite-btn"><i class="fa-regular fa-heart"></i></button>
+                    <div class="tags"><span class="tag">Desayuno</span><span class="tag time">25 min</span></div>
+                </div>
+                <div class="card-content">
+                    <div class="rating"><i class="fa-solid fa-star"></i><span>(4.9)</span></div>
+                    <h3><a href="#">Tostadas Francesas</a></h3>
+                    <p>Pan brioche dorado con canela, vainilla y frutas frescas.</p>
+                    <div class="card-footer">
+                        <div class="author">
+                            <div class="avatar">AN</div><span>Ana N.</span>
+                        </div>
+                        <a href="#" class="btn-link">Ver Receta</a>
+                    </div>
+                </div>
+            </article>
+            <article class="recipe-card" data-category="desayuno">
+                <div class="card-image">
+                    <img src="images/hero_background.png" alt="Huevos Benedictinos">
+                    <button class="favorite-btn"><i class="fa-regular fa-heart"></i></button>
+                    <div class="tags"><span class="tag">Desayuno</span><span class="tag time">40 min</span></div>
+                </div>
+                <div class="card-content">
+                    <div class="rating"><i class="fa-solid fa-star"></i><span>(4.7)</span></div>
+                    <h3><a href="#">Huevos Benedictinos</a></h3>
+                    <p>Huevos pochados sobre muffin inglés con salsa holandesa.</p>
+                    <div class="card-footer">
+                        <div class="author">
+                            <div class="avatar">LU</div><span>Luis U.</span>
+                        </div>
+                        <a href="#" class="btn-link">Ver Receta</a>
+                    </div>
+                </div>
+            </article>
+            <article class="recipe-card" data-category="desayuno">
+                <div class="card-image">
+                    <img src="images/pancakes.png" alt="Bowl de Avena">
+                    <button class="favorite-btn"><i class="fa-regular fa-heart"></i></button>
+                    <div class="tags"><span class="tag">Saludable</span><span class="tag time">15 min</span></div>
+                </div>
+                <div class="card-content">
+                    <div class="rating"><i class="fa-solid fa-star"></i><span>(4.8)</span></div>
+                    <h3><a href="#">Bowl de Avena y Frutas</a></h3>
+                    <p>Energía pura para empezar el día con avena y berries.</p>
+                    <div class="card-footer">
+                        <div class="author">
+                            <div class="avatar">SO</div><span>Sofia O.</span>
+                        </div>
+                        <a href="#" class="btn-link">Ver Receta</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ALMUERZOS (4 Recetas) -->
+            <article class="recipe-card" data-category="almuerzo">
+                <div class="card-image">
+                    <img src="images/pasta_salad.png" alt="Ensalada de Pasta">
+                    <button class="favorite-btn"><i class="fa-regular fa-heart"></i></button>
+                    <div class="tags"><span class="tag">Vegetariano</span><span class="tag time">20 min</span></div>
+                </div>
+                <div class="card-content">
+                    <div class="rating"><i class="fa-solid fa-star"></i><span>(4.8)</span></div>
+                    <h3><a href="#">Ensalada Caprese</a></h3>
+                    <p>Fresca, ligera y deliciosa. Perfecta para el verano.</p>
+                    <div class="card-footer">
+                        <div class="author">
+                            <div class="avatar">MJ</div><span>Maria J.</span>
+                        </div>
+                        <a href="#" class="btn-link">Ver Receta</a>
+                    </div>
+                </div>
+            </article>
+            <article class="recipe-card" data-category="almuerzo">
+                <div class="card-image">
+                    <img src="images/pasta_salad.png" alt="Pasta Pesto" style="filter: hue-rotate(40deg);">
+                    <button class="favorite-btn"><i class="fa-regular fa-heart"></i></button>
+                    <div class="tags"><span class="tag">Pasta</span><span class="tag time">35 min</span></div>
+                </div>
+                <div class="card-content">
+                    <div class="rating"><i class="fa-solid fa-star"></i><span>(4.6)</span></div>
+                    <h3><a href="#">Pasta al Pesto Genovés</a></h3>
+                    <p>Salsa de albahaca fresca con piñones y parmesano.</p>
+                    <div class="card-footer">
+                        <div class="author">
+                            <div class="avatar">GP</div><span>Giovanni P.</span>
+                        </div>
+                        <a href="#" class="btn-link">Ver Receta</a>
+                    </div>
+                </div>
+            </article>
+            <article class="recipe-card" data-category="almuerzo">
+                <div class="card-image">
+                    <img src="images/hero_background.png" alt="Pollo Asado">
+                    <button class="favorite-btn"><i class="fa-regular fa-heart"></i></button>
+                    <div class="tags"><span class="tag">Pollo</span><span class="tag time">50 min</span></div>
+                </div>
+                <div class="card-content">
+                    <div class="rating"><i class="fa-solid fa-star"></i><span>(4.9)</span></div>
+                    <h3><a href="#">Pollo Asado al Limón</a></h3>
+                    <p>Jugoso pollo horneado con hierbas y cítricos.</p>
+                    <div class="card-footer">
+                        <div class="author">
+                            <div class="avatar">RO</div><span>Rosa M.</span>
+                        </div>
+                        <a href="#" class="btn-link">Ver Receta</a>
+                    </div>
+                </div>
+            </article>
+            <article class="recipe-card" data-category="almuerzo">
+                <div class="card-image">
+                    <img src="images/pasta_salad.png" alt="Quinoa Bowl" style="transform: scaleX(-1);">
+                    <button class="favorite-btn"><i class="fa-regular fa-heart"></i></button>
+                    <div class="tags"><span class="tag">Vegan</span><span class="tag time">25 min</span></div>
+                </div>
+                <div class="card-content">
+                    <div class="rating"><i class="fa-solid fa-star"></i><span>(4.7)</span></div>
+                    <h3><a href="#">Bowl Mediterráneo de Quinoa</a></h3>
+                    <p>Quinoa, aceitunas, pepino y hummus casero.</p>
+                    <div class="card-footer">
+                        <div class="author">
+                            <div class="avatar">LE</div><span>Lena E.</span>
+                        </div>
+                        <a href="#" class="btn-link">Ver Receta</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- CENAS (4 Recetas) -->
+            <article class="recipe-card" data-category="cena">
+                <div class="card-image">
+                    <img src="images/hero_background.png" alt="Salmón">
+                    <button class="favorite-btn"><i class="fa-regular fa-heart"></i></button>
+                    <div class="tags"><span class="tag">Pescado</span><span class="tag time">40 min</span></div>
+                </div>
+                <div class="card-content">
+                    <div class="rating"><i class="fa-solid fa-star"></i><span>(4.9)</span></div>
+                    <h3><a href="#">Salmón al Horno con Eneldo</a></h3>
+                    <p>Filete de salmón tierno con costra de hierbas finas.</p>
+                    <div class="card-footer">
+                        <div class="author">
+                            <div class="avatar">CK</div><span>Chef Ken</span>
+                        </div>
+                        <a href="#" class="btn-link">Ver Receta</a>
+                    </div>
+                </div>
+            </article>
+            <article class="recipe-card" data-category="cena">
+                <div class="card-image">
+                    <img src="images/hero_background.png" alt="Tacos" style="transform: scaleX(-1);">
+                    <button class="favorite-btn"><i class="fa-regular fa-heart"></i></button>
+                    <div class="tags"><span class="tag">Mexicano</span><span class="tag time">30 min</span></div>
+                </div>
+                <div class="card-content">
+                    <div class="rating"><i class="fa-solid fa-star"></i><span>(5.0)</span></div>
+                    <h3><a href="#">Tacos Gourmet de Asada</a></h3>
+                    <p>Tortillas artesanales con carne premium y salsas.</p>
+                    <div class="card-footer">
+                        <div class="author">
+                            <div class="avatar">MA</div><span>Maria A.</span>
+                        </div>
+                        <a href="#" class="btn-link">Ver Receta</a>
+                    </div>
+                </div>
+            </article>
+            <article class="recipe-card" data-category="cena">
+                <div class="card-image">
+                    <img src="images/pasta_salad.png" alt="Risotto">
+                    <button class="favorite-btn"><i class="fa-regular fa-heart"></i></button>
+                    <div class="tags"><span class="tag">Italiano</span><span class="tag time">45 min</span></div>
+                </div>
+                <div class="card-content">
+                    <div class="rating"><i class="fa-solid fa-star"></i><span>(4.8)</span></div>
+                    <h3><a href="#">Risotto de Setas Silvestres</a></h3>
+                    <p>Arroz cremoso cocinado lentamente con funghi porcini.</p>
+                    <div class="card-footer">
+                        <div class="author">
+                            <div class="avatar">LU</div><span>Luigi</span>
+                        </div>
+                        <a href="#" class="btn-link">Ver Receta</a>
+                    </div>
+                </div>
+            </article>
+            <article class="recipe-card" data-category="cena">
+                <div class="card-image">
+                    <img src="images/hero_background.png" alt="Sopa">
+                    <button class="favorite-btn"><i class="fa-regular fa-heart"></i></button>
+                    <div class="tags"><span class="tag">Sopa</span><span class="tag time">35 min</span></div>
+                </div>
+                <div class="card-content">
+                    <div class="rating"><i class="fa-solid fa-star"></i><span>(4.5)</span></div>
+                    <h3><a href="#">Crema de Calabaza y Jengibre</a></h3>
+                    <p>Reconfortante y suave, ideal para noches frías.</p>
+                    <div class="card-footer">
+                        <div class="author">
+                            <div class="avatar">EL</div><span>Elena R.</span>
+                        </div>
+                        <a href="#" class="btn-link">Ver Receta</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- POSTRES (4 Recetas) -->
+            <article class="recipe-card" data-category="postre">
+                <div class="card-image">
+                    <img src="images/pancakes.png" alt="Tiramisu">
+                    <button class="favorite-btn"><i class="fa-regular fa-heart"></i></button>
+                    <div class="tags"><span class="tag">Dulce</span><span class="tag time">60 min</span></div>
+                </div>
+                <div class="card-content">
+                    <div class="rating"><i class="fa-solid fa-star"></i><span>(5.0)</span></div>
+                    <h3><a href="#">Tiramisú Clásico</a></h3>
+                    <p>Capas de soletillas, café espresso y crema de mascarpone.</p>
+                    <div class="card-footer">
+                        <div class="author">
+                            <div class="avatar">IT</div><span>Chef Ita</span>
+                        </div>
+                        <a href="#" class="btn-link">Ver Receta</a>
+                    </div>
+                </div>
+            </article>
+            <article class="recipe-card" data-category="postre">
+                <div class="card-image">
+                    <img src="images/pancakes.png" alt="Cheesecake" style="filter: brightness(1.1);">
+                    <button class="favorite-btn"><i class="fa-regular fa-heart"></i></button>
+                    <div class="tags"><span class="tag">Pastel</span><span class="tag time">90 min</span></div>
+                </div>
+                <div class="card-content">
+                    <div class="rating"><i class="fa-solid fa-star"></i><span>(4.9)</span></div>
+                    <h3><a href="#">Cheesecake de Frutos Rojos</a></h3>
+                    <p>Base crujiente y relleno cremoso con topping de fresas.</p>
+                    <div class="card-footer">
+                        <div class="author">
+                            <div class="avatar">PA</div><span>Paula S.</span>
+                        </div>
+                        <a href="#" class="btn-link">Ver Receta</a>
+                    </div>
+                </div>
+            </article>
+            <article class="recipe-card" data-category="postre">
+                <div class="card-image">
+                    <img src="images/pancakes.png" alt="Brownie" style="filter: contrast(1.2);">
+                    <button class="favorite-btn"><i class="fa-regular fa-heart"></i></button>
+                    <div class="tags"><span class="tag">Chocolate</span><span class="tag time">40 min</span></div>
+                </div>
+                <div class="card-content">
+                    <div class="rating"><i class="fa-solid fa-star"></i><span>(4.8)</span></div>
+                    <h3><a href="#">Brownie con Nueces</a></h3>
+                    <p>Intenso sabor a chocolate con interior húmedo.</p>
+                    <div class="card-footer">
+                        <div class="author">
+                            <div class="avatar">CH</div><span>ChocoLover</span>
+                        </div>
+                        <a href="#" class="btn-link">Ver Receta</a>
+                    </div>
+                </div>
+            </article>
+            <article class="recipe-card" data-category="postre">
+                <div class="card-image">
+                    <img src="images/pancakes.png" alt="Helado" style="transform: scaleX(-1);">
+                    <button class="favorite-btn"><i class="fa-regular fa-heart"></i></button>
+                    <div class="tags"><span class="tag">Helado</span><span class="tag time">12h</span></div>
+                </div>
+                <div class="card-content">
+                    <div class="rating"><i class="fa-solid fa-star"></i><span>(4.7)</span></div>
+                    <h3><a href="#">Helado Artesanal de Vainilla</a></h3>
+                    <p>Cremoso, suave y hecho en casa con vaina natural.</p>
+                    <div class="card-footer">
+                        <div class="author">
+                            <div class="avatar">IC</div><span>IceMaster</span>
+                        </div>
+                        <a href="#" class="btn-link">Ver Receta</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <!-- Footer (Mismo que home) -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <a href="index.html" class="logo light">Sabor <span class="accent">&</span> Arte</a>
+                <p>Cocinando historias, un plato a la vez.</p>
+                <div class="socials">
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Explorar</h4>
+                <ul>
+                    <li><a href="recetas.html">Recetas</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Compañía</h4>
+                <ul>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom text-center">
+            <p>&copy; 2024 Sabor & Arte. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Funcionalidad completa de filtrado y búsqueda
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const initialCategory = params.get('categoria');
+            const selectFilter = document.getElementById('category-filter');
+            const searchInput = document.getElementById('search-input');
+
+            // 1. Si venimos con categoría desde URL, aplicarla
+            if (initialCategory) {
+                // Establecer el valor del select si coincide
+                if ([...selectFilter.options].some(opt => opt.value === initialCategory)) {
+                    selectFilter.value = initialCategory;
+                    updatePageTitle(initialCategory);
+                }
+                filterGrid(initialCategory);
+            }
+
+            // 2. Función para filtrar al cambiar el select
+            window.filterRecipes = () => {
+                const category = selectFilter.value;
+                updatePageTitle(category);
+                filterGrid(category);
+            };
+
+            // 3. Función de búsqueda básica (por texto en títulos)
+            window.searchRecipes = () => {
+                const query = searchInput.value.toLowerCase();
+                const cards = document.querySelectorAll('.recipe-card');
+
+                cards.forEach(card => {
+                    const title = card.querySelector('h3').textContent.toLowerCase();
+                    const visibleByCategory = selectFilter.value === '' || card.getAttribute('data-category') === selectFilter.value;
+
+                    if (title.includes(query) && visibleByCategory) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            };
+
+            // Búsqueda al presionar Enter
+            searchInput.addEventListener('keyup', (e) => {
+                if (e.key === 'Enter') window.searchRecipes();
+            });
+
+            // Función auxiliar para filtrar el grid visualmente
+            function filterGrid(category) {
+                const cards = document.querySelectorAll('.recipe-card');
+                cards.forEach(card => {
+                    // Si category es '' (todas) o coincide con data-category, mostrar
+                    if (category === '' || card.getAttribute('data-category') === category) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+
+            // Función para actualizar título de página
+            function updatePageTitle(category) {
+                const pageTitle = document.getElementById('page-title');
+                const badge = document.getElementById('category-badge');
+
+                if (category) {
+                    const categoryName = category.charAt(0).toUpperCase() + category.slice(1) + (category.endsWith('s') ? '' : 's'); // Simple pluralizer
+                    pageTitle.textContent = categoryName;
+                    badge.textContent = 'Categoría';
+                } else {
+                    pageTitle.textContent = 'Todas las Recetas';
+                    badge.textContent = 'Explora';
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
