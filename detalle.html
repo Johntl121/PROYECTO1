@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de Receta | Sabor & Arte</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar sticky">
+        <div class="container nav-container">
+            <a href="index.html" class="logo" style="color: var(--secondary);">Sabor <span class="accent">&</span>
+                Arte</a>
+            <ul class="nav-links">
+                <li><a href="index.html" style="color: var(--secondary);">Inicio</a></li>
+                <li><a href="recetas.html" class="active" style="color: var(--secondary);">Recetas</a></li>
+                <li><a href="#" style="color: var(--secondary);">Blog</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="search-btn" style="color: var(--secondary);"><i class="fa-solid fa-search"></i></button>
+            </div>
+            <div class="mobile-toggle" style="color: var(--secondary);">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <div id="loading" class="container text-center section-padding">
+        <h2>Cargando receta...</h2>
+    </div>
+
+    <div id="recipe-container" style="display: none;">
+        <!-- Hero Section -->
+        <header class="recipe-hero">
+            <img id="r-image" class="recipe-hero-bg" src="" alt="">
+            <div class="container recipe-hero-content">
+                <div class="badget" id="r-category">Categoría</div>
+                <h1 id="r-title">Nombre de la Receta</h1>
+                <div class="recipe-meta">
+                    <div class="meta-item"><i class="fa-regular fa-clock"></i> <span id="r-time">0 min</span></div>
+                    <div class="meta-item"><i class="fa-solid fa-user-group"></i> <span id="r-servings">0
+                            porciones</span></div>
+                    <div class="meta-item"><i class="fa-solid fa-fire"></i> <span id="r-calories">0 kcal</span></div>
+                    <div class="meta-item"><i class="fa-solid fa-star" style="color: #FFC107;"></i> <span
+                            id="r-rating">5.0</span></div>
+                    <div class="meta-item"><i class="fa-solid fa-user"></i> <span id="r-author">Autor</span></div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="container" style="padding-bottom: 80px;">
+
+            <!-- Nutrition Grid -->
+            <div class="nutrition-grid">
+                <div class="nutrition-card">
+                    <h4>Calorías</h4>
+                    <div class="value" id="nut-cal">0</div>
+                </div>
+                <div class="nutrition-card">
+                    <h4>Proteínas</h4>
+                    <div class="value" id="nut-pro">0g</div>
+                </div>
+                <div class="nutrition-card">
+                    <h4>Carbohidratos</h4>
+                    <div class="value" id="nut-carb">0g</div>
+                </div>
+                <div class="nutrition-card">
+                    <h4>Grasas</h4>
+                    <div class="value" id="nut-fat">0g</div>
+                </div>
+            </div>
+
+            <div class="recipe-content-grid">
+                <!-- Sidebar: Ingredients -->
+                <aside>
+                    <div class="ingredients-box">
+                        <h3 class="section-header"
+                            style="margin-bottom: 25px; font-family: var(--font-heading); font-size: 1.8rem;">
+                            Ingredientes</h3>
+                        <ul class="ingredients-list" id="r-ingredients">
+                            <!-- JS populated -->
+                        </ul>
+                    </div>
+                </aside>
+
+                <!-- Main: Instructions -->
+                <section>
+                    <h3 class="section-header"
+                        style="margin-bottom: 25px; font-family: var(--font-heading); font-size: 1.8rem;">Instrucciones
+                    </h3>
+                    <p id="r-description" style="margin-bottom: 40px; font-size: 1.1rem; color: var(--gray);">
+                        Descripción...
+                    </p>
+                    <div class="steps-container" id="r-instructions">
+                        <!-- JS populated -->
+                    </div>
+                </section>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <a href="index.html" class="logo light">Sabor <span class="accent">&</span> Arte</a>
+                <p>Cocinando historias, un plato a la vez.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Explorar</h4>
+                <ul>
+                    <li><a href="recetas.html">Recetas</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom text-center">
+            <p>&copy; 2024 Sabor & Arte.</p>
+        </div>
+    </footer>
+
+    <script src="js/recipes.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const recipeId = params.get('id');
+            const container = document.getElementById('recipe-container');
+            const loading = document.getElementById('loading');
+
+            if (!recipeId) {
+                loading.innerHTML = '<h2>Receta no especificada</h2><a href="recetas.html" class="btn btn-primary">Volver al recetario</a>';
+                return;
+            }
+
+            // Find recipe in global 'recipes' array from js/recipes.js
+            const recipe = recipes.find(r => r.id === recipeId);
+
+            if (recipe) {
+                // Populate UI
+                document.title = `${recipe.title} - Receta | Sabor & Arte`;
+
+                // Hero
+                const imgEl = document.getElementById('r-image');
+                imgEl.src = recipe.image;
+                if (recipe.imageStyle) {
+                    imgEl.style = recipe.imageStyle; // Apply filters/transforms
+                }
+
+                document.getElementById('r-category').textContent = recipe.category;
+                document.getElementById('r-title').textContent = recipe.title;
+                document.getElementById('r-time').textContent = recipe.time;
+                document.getElementById('r-servings').textContent = recipe.details.servings + ' porciones';
+                document.getElementById('r-calories').textContent = recipe.details.calories;
+                document.getElementById('r-rating').textContent = recipe.rating + ` (${recipe.rating * 20} reseñas)`; // Fake review count
+                document.getElementById('r-author').textContent = recipe.author;
+
+                // Nutrition
+                document.getElementById('nut-cal').textContent = recipe.details.calories;
+                document.getElementById('nut-pro').textContent = recipe.details.protein;
+                document.getElementById('nut-carb').textContent = recipe.details.carbs;
+                document.getElementById('nut-fat').textContent = recipe.details.fat;
+
+                // Description
+                document.getElementById('r-description').textContent = recipe.description;
+
+                // Ingredients
+                const ingList = document.getElementById('r-ingredients');
+                recipe.ingredients.forEach(ing => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<i class="fa-solid fa-check"></i> <span>${ing}</span>`;
+                    ingList.appendChild(li);
+                });
+
+                // Instructions
+                const instContainer = document.getElementById('r-instructions');
+                recipe.instructions.forEach((step, index) => {
+                    const div = document.createElement('div');
+                    div.className = 'step-item';
+                    div.innerHTML = `
+                        <div class="step-number">${index + 1}</div>
+                        <div class="step-content">
+                            <h3>Paso ${index + 1}</h3>
+                            <p>${step}</p>
+                        </div>
+                    `;
+                    instContainer.appendChild(div);
+                });
+
+                loading.style.display = 'none';
+                container.style.display = 'block';
+
+            } else {
+                loading.innerHTML = '<h2>Receta no encontrada</h2><a href="recetas.html" class="btn btn-primary">Volver al recetario</a>';
+            }
+        });
+    </script>
+</body>
+
+</html>
